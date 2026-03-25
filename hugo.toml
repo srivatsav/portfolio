@@ -1,4 +1,5 @@
-baseURL = "https://srivatsav.github.io/portfolio"
+baseURL = "https://srivatsav.github.io/portfolio/"
+relativeURLs = true
 languageCode = "en-us"
 title = "Srivatsav Gorti | Staff Software Engineer"
 
