@@ -1,0 +1,33 @@
+baseURL = "https://srivatsav.github.io/portfolio"
+languageCode = "en-us"
+title = "Srivatsav Gorti | Staff Software Engineer"
+theme = ""
+
+[params]
+  author = "Srivatsav Gorti"
+  email = "vatsav.gs@gmail.com"
+  linkedin = "https://linkedin.com/in/srivatsav-gorti"
+  github = "https://github.com/srivatsav"
+  description = "Polyglot software engineer with 10 YOE building scalable backend platforms and distributed systems."
+
+[menu]
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 1
+  [[menu.main]]
+    name = "Experience"
+    url = "/experience/"
+    weight = 2
+  [[menu.main]]
+    name = "Tech Stack"
+    url = "/tech-stack/"
+    weight = 3
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 4
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 5
