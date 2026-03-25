@@ -145,6 +145,12 @@ SRM University, Chennai • 2015 • GPA: 8.504
 
 ---
 
+## Blog
+
+Recent engineering thoughts from building distributed systems and leading technical teams.
+
+[View All Posts →](/blog/)
+
 ## Contact
 
 - **Email:** [vatsav.gs@gmail.com](mailto:vatsav.gs@gmail.com)
