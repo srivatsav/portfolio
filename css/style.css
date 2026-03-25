@@ -1,0 +1,170 @@
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a5568;
+    --accent: #2563eb;
+    --border: #e2e8f0;
+}
+
+.dark-mode {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --accent: #3b82f6;
+    --border: #334155;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    transition: background 0.3s, color 0.3s;
+}
+
+.dark-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s;
+}
+
+.dark-toggle:hover {
+    transform: scale(1.1);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 3rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent);
+    color: var(--accent);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    color: var(--text-primary);
+}
+
+h4 {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+strong {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+em {
+    font-style: italic;
+}
+
+ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 3rem 0;
+}
+
+.job-card {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.tech-category {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+footer {
+    border-top: 2px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .container {
+        padding: 1rem 1rem 2rem;
+    }
+}
