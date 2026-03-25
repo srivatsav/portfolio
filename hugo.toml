@@ -1,7 +1,7 @@
 baseURL = "https://srivatsav.github.io/portfolio"
 languageCode = "en-us"
 title = "Srivatsav Gorti | Staff Software Engineer"
-theme = ""
+
 
 [params]
   author = "Srivatsav Gorti"

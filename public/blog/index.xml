@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Srivatsav Gorti | Staff Software Engineer</title>
+    <link>https://srivatsav.github.io/portfolio/blog/</link>
+    <description>Recent content in Blog on Srivatsav Gorti | Staff Software Engineer</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://srivatsav.github.io/portfolio/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to My Blog</title>
+      <link>https://srivatsav.github.io/portfolio/blog/first-post/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://srivatsav.github.io/portfolio/blog/first-post/</guid>
+      <description>&lt;h1 id=&#34;welcome-to-my-blog&#34;&gt;Welcome to My Blog&lt;/h1&gt;&#xA;&lt;p&gt;This is my first post. I&amp;rsquo;ll be sharing thoughts on:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Distributed systems design&lt;/li&gt;&#xA;&lt;li&gt;Event-driven architecture&lt;/li&gt;&#xA;&lt;li&gt;Scalability patterns&lt;/li&gt;&#xA;&lt;li&gt;Engineering leadership&lt;/li&gt;&#xA;&lt;li&gt;Real-world challenges at scale&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;More content coming soon!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
