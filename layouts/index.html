@@ -1,52 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Site.Title }}</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="/" class="logo">{{ .Site.Title }}</a>
-            <div class="nav-links">
-                {{ range .Site.Menus.main }}
-                <a href="{{ .URL }}">{{ .Name }}</a>
+{{ define "main" }}
+<main>
+    <section class="hero">
+        <h1>{{ .Site.Title }}</h1>
+        <p class="bio">
+            <strong>{{ .Site.Params.author }}</strong> — {{ .Site.Params.role }}
+        </p>
+        <p>
+            {{ .Site.Params.description }}
+        </p>
+        
+        <div class="social-links">
+            <a href="mailto:{{ .Site.Params.email }}" target="_blank">Email</a>
+            <a href="https://github.com/srivatsav" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://linkedin.com/in/srivatsav-gorti" target="_blank" rel="noopener">LinkedIn</a>
+            {{ with .Site.Params.twitter }}
+            <a href="https://twitter.com/{{ . }}" target="_blank" rel="noopener">Twitter</a>
+            {{ end }}
+            {{ with .Site.Params.youtube }}
+            <a href="https://youtube.com/{{ . }}" target="_blank" rel="noopener">YouTube</a>
+            {{ end }}
+        </div>
+    </section>
+
+    {{ with .Site.GetPage "section" "blog" }}
+    {{ $posts := where .Pages "Kind" "page" | first 3 }}
+    {{ if $posts }}
+    <section class="section-header">
+        <h2>Writing</h2>
+        <a href="/blog">View all →</a>
+    </section>
+    
+    <div class="posts-list">
+        {{ range $posts }}
+        <article class="post-item">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+            <div>
+                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                {{ if .Summary }}
+                <p class="summary">{{ .Summary }}</p>
                 {{ end }}
             </div>
-        </nav>
-    </header>
+        </article>
+        {{ end }}
+    </div>
+    {{ end }}
+    {{ end }}
 
-    <main>
-        <div class="hero">
-            <h1>{{ .Title }}</h1>
-            {{ .Content }}
+    <section class="section-header">
+        <h2>Experience</h2>
+        <a href="/experience">View all →</a>
+    </section>
+    
+    <div class="experience-list">
+        {{ range first 3 (where .Site.RegularPages "Section" "experience") }}
+        <div class="experience-item">
+            <span class="date">{{ .Params.date }}</span>
+            <div>
+                <div class="role">{{ .Title }}</div>
+                <div class="company">{{ .Params.company }}</div>
+            </div>
         </div>
-    </main>
+        {{ end }}
+    </div>
 
-    <footer>
-        <p>&copy; 2025 {{ .Site.Params.author }}. Built with Hugo.</p>
-    </footer>
-
-    <script>
-        // Dark mode toggle
-        const toggle = () => {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
-        };
-
-        // Load saved preference
-        if (localStorage.getItem('dark-mode') === 'true') {
-            document.body.classList.add('dark-mode');
-        }
-
-        // Add toggle button
-        const btn = document.createElement('button');
-        btn.textContent = '🌙';
-        btn.className = 'dark-toggle';
-        btn.onclick = toggle;
-        document.body.appendChild(btn);
-    </script>
-</body>
-</html>
+    <section class="section-header">
+        <h2>Projects</h2>
+    </section>
+    
+    <div class="projects-grid">
+        {{ range where .Site.RegularPages "Section" "projects" }}
+        <div class="project-item">
+            <h3>{{ .Title }}</h3>
+            <p class="project-desc">{{ .Summary }}</p>
+            {{ with .Params.link }}
+            <a href="{{ . }}" target="_blank" rel="noopener" class="project-link">View Project →</a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</main>
+{{ end }}

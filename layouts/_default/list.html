@@ -1,54 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | {{ .Site.Title }}</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Blog</h1>
-        <p class="subtitle">Engineering thoughts from 10 years building distributed systems</p>
-        
-        <hr>
-        
-        <div class="posts-list">
-            {{ range .Pages }}
-            <article class="post-card">
-                <div class="post-meta">
-                    {{ if .Date }}
-                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+{{ define "main" }}
+<main>
+    <section class="hero">
+        <h1>Writing</h1>
+        <p>Thoughts on building distributed systems, engineering leadership, and lessons learned scaling platforms.</p>
+    </section>
+
+    <div class="posts-list">
+        {{ range .Pages }}
+        <article class="post-item">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+            <div>
+                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                {{ if .Summary }}
+                <p class="summary">{{ .Summary }}</p>
+                {{ end }}
+                {{ with .Params.tags }}
+                <div class="tags">
+                    {{ range . }}
+                    <span class="tag">{{ . }}</span>
                     {{ end }}
                 </div>
-                <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-                {{ if .Summary }}
-                <p>{{ .Summary }}</p>
                 {{ end }}
-            </article>
-            {{ end }}
-        </div>
+            </div>
+        </article>
+        {{ end }}
     </div>
-
-    <footer>
-        <p>&copy; 2025 Srivatsav Gorti. Built with Hugo.</p>
-    </footer>
-
-    <script>
-        const toggle = () => {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
-        };
-
-        if (localStorage.getItem('dark-mode') === 'true') {
-            document.body.classList.add('dark-mode');
-        }
-
-        const btn = document.createElement('button');
-        btn.textContent = '🌙';
-        btn.className = 'dark-toggle';
-        btn.onclick = toggle;
-        document.body.appendChild(btn);
-    </script>
-</body>
-</html>
+</main>
+{{ end }}

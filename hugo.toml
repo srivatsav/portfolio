@@ -1,14 +1,23 @@
 baseURL = "https://srivatsav.github.io/portfolio/"
-
-[permalinks]
-  section = ":slug/"
-
 languageCode = "en-us"
-title = "Srivatsav Gorti | Staff Software Engineer"
+title = "Srivatsav Gorti"
+theme = []
 
 [params]
   author = "Srivatsav Gorti"
+  role = "Staff Software Engineer"
+  description = "Polyglot software engineer with 10 years of experience building scalable backend platforms and distributed systems. Currently leading engineering at Warner Bros. Discovery."
   email = "vatsav.gs@gmail.com"
   linkedin = "https://linkedin.com/in/srivatsav-gorti"
   github = "https://github.com/srivatsav"
-  description = "Polyglot software engineer with 10 YOE building scalable backend platforms and distributed systems."
+  twitter = ""
+  youtube = ""
+
+[permalinks]
+  blog = "/blog/:slug/"
+  experience = "/experience/:slug/"
+  projects = "/projects/:slug/"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"

@@ -3,27 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | </title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Blog | Srivatsav Gorti</title>
+    <meta name="description" content="Engineering Thoughts
+Real-world insights from 10 years building distributed systems and leading engineering teams.
+
+Latest Posts
+How I Saved $1.2M/Year by Replacing Vendor Software
+March 25, 2025
+Replaced external SOX compliance tool with in-house solution. Lessons on build vs. buy, architecture decisions, and $1.2M annual savings.
+Read More →
+
+Building Systems That Handle 1M Events Per Day: Lessons from the Trenches
+March 24, 2025
+Designed reconciliation framework processing 1M events/day. Failed twice, then succeeded. Watermarks, backpressure, and observability at scale.">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤟</text></svg>">
 </head>
 <body>
     <div class="container">
-        <h1>Blog</h1>
-        <p class="subtitle">Engineering thoughts from 10 years building distributed systems</p>
-        
-        <hr>
-        
-        <div class="posts-list">
-            
-            <article class="post-card">
-                <div class="post-meta">
-                    
-                    <time datetime="2025-03-25">March 25, 2025</time>
-                    
+        <header>
+            <nav>
+                <a href="/" class="logo">Srivatsav Gorti</a>
+                <div class="nav-links">
+                    <a href="/about">About</a>
+                    <a href="/experience">Experience</a>
+                    <a href="/blog">Blog</a>
+                    <a href="https://github.com/srivatsav" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://linkedin.com/in/srivatsav-gorti" target="_blank" rel="noopener">LinkedIn</a>
                 </div>
-                <h2><a href="/portfolio/blog/how-i-saved-1-2m-year-by-replacing-vendor-software/">How I Saved $1.2M/Year by Replacing Vendor Software</a></h2>
+            </nav>
+        </header>
+        
+        
+<main>
+    <section class="hero">
+        <h1>Writing</h1>
+        <p>Thoughts on building distributed systems, engineering leadership, and lessons learned scaling platforms.</p>
+    </section>
+
+    <div class="posts-list">
+        
+        <article class="post-item">
+            <time datetime="2025-03-25">Mar 25, 2025</time>
+            <div>
+                <h3><a href="/portfolio/blog/how-i-saved-1.2m/year-by-replacing-vendor-software/">How I Saved $1.2M/Year by Replacing Vendor Software</a></h3>
                 
-                <p><p>Last quarter, my team at Warner Bros. Discovery completed a project that eliminated a $1.2M annual contract. We replaced an external vendor&rsquo;s SOX compliance controls with an in-house solution.</p>
+                <p class="summary"><p>Last quarter, my team at Warner Bros. Discovery completed a project that eliminated a $1.2M annual contract. We replaced an external vendor&rsquo;s SOX compliance controls with an in-house solution.</p>
 <p>This post explains how we approached it, the technical decisions, and lessons learned about build vs. buy.</p>
 <h2 id="the-situation">The Situation</h2>
 <p>Our financial reporting platform was using a third-party SOX compliance tool. The product worked, but we had several problems:</p>
@@ -35,17 +60,16 @@
 </ul>
 <p>My team (4 engineers) was tasked with evaluating alternatives.</p></p>
                 
-            </article>
-            
-            <article class="post-card">
-                <div class="post-meta">
-                    
-                    <time datetime="2025-03-25">March 25, 2025</time>
-                    
-                </div>
-                <h2><a href="/portfolio/blog/first-post/">Welcome to My Blog</a></h2>
                 
-                <p><h1 id="welcome-to-my-blog">Welcome to My Blog</h1>
+            </div>
+        </article>
+        
+        <article class="post-item">
+            <time datetime="2025-03-25">Mar 25, 2025</time>
+            <div>
+                <h3><a href="/portfolio/blog/welcome-to-my-blog/">Welcome to My Blog</a></h3>
+                
+                <p class="summary"><h1 id="welcome-to-my-blog">Welcome to My Blog</h1>
 <p>This is my first post. I&rsquo;ll be sharing thoughts on:</p>
 <ul>
 <li>Distributed systems design</li>
@@ -56,17 +80,16 @@
 </ul>
 <p>More content coming soon!</p></p>
                 
-            </article>
-            
-            <article class="post-card">
-                <div class="post-meta">
-                    
-                    <time datetime="2025-03-24">March 24, 2025</time>
-                    
-                </div>
-                <h2><a href="/portfolio/blog/building-systems-that-handle-1m-events-per-day/">Building Systems That Handle 1M Events Per Day: Lessons from the Trenches</a></h2>
                 
-                <p><p>At Phenom, I built a reconciliation framework that processes 1 million events per day. This post is about what it takes to build systems at that scale, the mistakes we made, and the architecture that finally worked.</p>
+            </div>
+        </article>
+        
+        <article class="post-item">
+            <time datetime="2025-03-24">Mar 24, 2025</time>
+            <div>
+                <h3><a href="/portfolio/blog/building-systems-that-handle-1m-events-per-day-lessons-from-the-trenches/">Building Systems That Handle 1M Events Per Day: Lessons from the Trenches</a></h3>
+                
+                <p class="summary"><p>At Phenom, I built a reconciliation framework that processes 1 million events per day. This post is about what it takes to build systems at that scale, the mistakes we made, and the architecture that finally worked.</p>
 <h2 id="the-problem">The Problem</h2>
 <p>We had 10+ downstream systems (data warehouses, analytics platforms, CRM, billing systems) consuming data from our integration platform. The problem:</p>
 <ul>
@@ -76,33 +99,31 @@
 </ul>
 <p>We needed a reconciliation framework that:</p></p>
                 
-            </article>
-            
-            <article class="post-card">
-                <div class="post-meta">
-                    
-                    <time datetime="2025-03-23">March 23, 2025</time>
-                    
-                </div>
-                <h2><a href="/portfolio/blog/10-years-of-distributed-systems-what-i-wish-i-knew-as-a-junior-engineer/">10 Years of Distributed Systems: What I Wish I Knew as a Junior Engineer</a></h2>
                 
-                <p><p>I&rsquo;ve been building distributed systems for a decade now. Looking back, I see patterns—decisions that worked, mistakes I repeated, lessons that took years to learn.</p>
+            </div>
+        </article>
+        
+        <article class="post-item">
+            <time datetime="2025-03-23">Mar 23, 2025</time>
+            <div>
+                <h3><a href="/portfolio/blog/10-years-of-distributed-systems-what-i-wish-i-knew-as-a-junior-engineer/">10 Years of Distributed Systems: What I Wish I Knew as a Junior Engineer</a></h3>
+                
+                <p class="summary"><p>I&rsquo;ve been building distributed systems for a decade now. Looking back, I see patterns—decisions that worked, mistakes I repeated, lessons that took years to learn.</p>
 <p>This post is a letter to my junior self. Maybe it helps you too.</p>
 <h2 id="2015-the-it-works-on-my-machine-fallacy">2015: The &ldquo;It Works on My Machine&rdquo; Fallacy</h2>
 <p>My first job at Cognizant, I built a backend service for Toyota dealers. Tested it locally. Passed all tests. Deployed to staging.</p>
 <p><strong>It failed</strong>.</p></p>
                 
-            </article>
-            
-            <article class="post-card">
-                <div class="post-meta">
-                    
-                    <time datetime="2025-03-22">March 22, 2025</time>
-                    
-                </div>
-                <h2><a href="/portfolio/blog/technical-leadership-how-i-learned-to-lead-engineering-decisions/">Technical Leadership: How I Learned to Lead Engineering Decisions</a></h2>
                 
-                <p><p>I&rsquo;ve been leading teams for 4 years now—first at Phenom (7 engineers), now at Warner Bros. Discovery (4 engineers).</p>
+            </div>
+        </article>
+        
+        <article class="post-item">
+            <time datetime="2025-03-22">Mar 22, 2025</time>
+            <div>
+                <h3><a href="/portfolio/blog/technical-leadership-how-i-learned-to-lead-engineering-decisions/">Technical Leadership: How I Learned to Lead Engineering Decisions</a></h3>
+                
+                <p class="summary"><p>I&rsquo;ve been leading teams for 4 years now—first at Phenom (7 engineers), now at Warner Bros. Discovery (4 engineers).</p>
 <p>Early on, I made mistakes as a leader. I micromanaged. I made decisions in isolation. I avoided conflict.</p>
 <p>This post is about what I learned about leading technical teams.</p>
 <h2 id="the-micromanagement-trap">The Micromanagement Trap</h2>
@@ -113,30 +134,17 @@
   - &#34;Dev C, you&#39;re on bug fixes this sprint&#34;
 </code></pre><p><strong>The problem</strong>:</p></p>
                 
-            </article>
-            
-        </div>
+                
+            </div>
+        </article>
+        
     </div>
+</main>
 
-    <footer>
-        <p>&copy; 2025 Srivatsav Gorti. Built with Hugo.</p>
-    </footer>
-
-    <script>
-        const toggle = () => {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
-        };
-
-        if (localStorage.getItem('dark-mode') === 'true') {
-            document.body.classList.add('dark-mode');
-        }
-
-        const btn = document.createElement('button');
-        btn.textContent = '🌙';
-        btn.className = 'dark-toggle';
-        btn.onclick = toggle;
-        document.body.appendChild(btn);
-    </script>
+        
+        <footer>
+            <p>&copy; 2026 Srivatsav Gorti. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>

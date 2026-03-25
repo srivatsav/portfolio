@@ -3,11 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10 Years of Distributed Systems: What I Wish I Knew as a Junior Engineer</title>
+    <title>10 Years of Distributed Systems: What I Wish I Knew as a Junior Engineer | Srivatsav Gorti</title>
+    <meta name="description" content="I&rsquo;ve been building distributed systems for a decade now. Looking back, I see patterns—decisions that worked, mistakes I repeated, lessons that took years to learn.
+This post is a letter to my junior self. Maybe it helps you too.
+2015: The &ldquo;It Works on My Machine&rdquo; Fallacy
+My first job at Cognizant, I built a backend service for Toyota dealers. Tested it locally. Passed all tests. Deployed to staging.
+It failed.">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤟</text></svg>">
 </head>
 <body>
     <div class="container">
+        <header>
+            <nav>
+                <a href="/" class="logo">Srivatsav Gorti</a>
+                <div class="nav-links">
+                    <a href="/about">About</a>
+                    <a href="/experience">Experience</a>
+                    <a href="/blog">Blog</a>
+                    <a href="https://github.com/srivatsav" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://linkedin.com/in/srivatsav-gorti" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </nav>
+        </header>
+        
+        
+<main>
+    <section class="hero">
+        <h1>10 Years of Distributed Systems: What I Wish I Knew as a Junior Engineer</h1>
+        <p><p>I&rsquo;ve been building distributed systems for a decade now. Looking back, I see patterns—decisions that worked, mistakes I repeated, lessons that took years to learn.</p>
+<p>This post is a letter to my junior self. Maybe it helps you too.</p>
+<h2 id="2015-the-it-works-on-my-machine-fallacy">2015: The &ldquo;It Works on My Machine&rdquo; Fallacy</h2>
+<p>My first job at Cognizant, I built a backend service for Toyota dealers. Tested it locally. Passed all tests. Deployed to staging.</p>
+<p><strong>It failed</strong>.</p></p>
+    </section>
+
+    <div class="about-content">
         <p>I&rsquo;ve been building distributed systems for a decade now. Looking back, I see patterns—decisions that worked, mistakes I repeated, lessons that took years to learn.</p>
 <p>This post is a letter to my junior self. Maybe it helps you too.</p>
 <h2 id="2015-the-it-works-on-my-machine-fallacy">2015: The &ldquo;It Works on My Machine&rdquo; Fallacy</h2>
@@ -281,26 +312,12 @@ Root cause: Refactored function didn&#39;t handle null case that previous versio
 <p>What lessons have you learned the hard way? I&rsquo;d love to hear your stories.</p>
 
     </div>
+</main>
 
-    <footer>
-        <p>&copy; 2025 Srivatsav Gorti. Built with Hugo.</p>
-    </footer>
-
-    <script>
-        const toggle = () => {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
-        };
-
-        if (localStorage.getItem('dark-mode') === 'true') {
-            document.body.classList.add('dark-mode');
-        }
-
-        const btn = document.createElement('button');
-        btn.textContent = '🌙';
-        btn.className = 'dark-toggle';
-        btn.onclick = toggle;
-        document.body.appendChild(btn);
-    </script>
+        
+        <footer>
+            <p>&copy; 2026 Srivatsav Gorti. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>

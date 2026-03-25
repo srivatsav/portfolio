@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on </title>
+    <title>Blog on Srivatsav Gorti</title>
     <link>https://srivatsav.github.io/portfolio/blog/</link>
-    <description>Recent content in Blog on </description>
+    <description>Recent content in Blog on Srivatsav Gorti</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://srivatsav.github.io/portfolio/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I Saved $1.2M/Year by Replacing Vendor Software</title>
-      <link>https://srivatsav.github.io/portfolio/blog/how-i-saved-1-2m-year-by-replacing-vendor-software/</link>
+      <link>https://srivatsav.github.io/portfolio/blog/how-i-saved-1.2m/year-by-replacing-vendor-software/</link>
       <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://srivatsav.github.io/portfolio/blog/how-i-saved-1-2m-year-by-replacing-vendor-software/</guid>
+      <guid>https://srivatsav.github.io/portfolio/blog/how-i-saved-1.2m/year-by-replacing-vendor-software/</guid>
       <description>&lt;p&gt;Last quarter, my team at Warner Bros. Discovery completed a project that eliminated a $1.2M annual contract. We replaced an external vendor&amp;rsquo;s SOX compliance controls with an in-house solution.&lt;/p&gt;&#xA;&lt;p&gt;This post explains how we approached it, the technical decisions, and lessons learned about build vs. buy.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-situation&#34;&gt;The Situation&lt;/h2&gt;&#xA;&lt;p&gt;Our financial reporting platform was using a third-party SOX compliance tool. The product worked, but we had several problems:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Annual cost&lt;/strong&gt;: $1.2M in licensing fees&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Customization limits&lt;/strong&gt;: We couldn&amp;rsquo;t adapt to changing compliance requirements&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Vendor lock-in&lt;/strong&gt;: Any enhancement request meant waiting for their roadmap&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Integration friction&lt;/strong&gt;: The tool was designed for generic cases, not our specific needs&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;My team (4 engineers) was tasked with evaluating alternatives.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Welcome to My Blog</title>
-      <link>https://srivatsav.github.io/portfolio/blog/first-post/</link>
+      <link>https://srivatsav.github.io/portfolio/blog/welcome-to-my-blog/</link>
       <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://srivatsav.github.io/portfolio/blog/first-post/</guid>
+      <guid>https://srivatsav.github.io/portfolio/blog/welcome-to-my-blog/</guid>
       <description>&lt;h1 id=&#34;welcome-to-my-blog&#34;&gt;Welcome to My Blog&lt;/h1&gt;&#xA;&lt;p&gt;This is my first post. I&amp;rsquo;ll be sharing thoughts on:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Distributed systems design&lt;/li&gt;&#xA;&lt;li&gt;Event-driven architecture&lt;/li&gt;&#xA;&lt;li&gt;Scalability patterns&lt;/li&gt;&#xA;&lt;li&gt;Engineering leadership&lt;/li&gt;&#xA;&lt;li&gt;Real-world challenges at scale&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;More content coming soon!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building Systems That Handle 1M Events Per Day: Lessons from the Trenches</title>
-      <link>https://srivatsav.github.io/portfolio/blog/building-systems-that-handle-1m-events-per-day/</link>
+      <link>https://srivatsav.github.io/portfolio/blog/building-systems-that-handle-1m-events-per-day-lessons-from-the-trenches/</link>
       <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://srivatsav.github.io/portfolio/blog/building-systems-that-handle-1m-events-per-day/</guid>
+      <guid>https://srivatsav.github.io/portfolio/blog/building-systems-that-handle-1m-events-per-day-lessons-from-the-trenches/</guid>
       <description>&lt;p&gt;At Phenom, I built a reconciliation framework that processes 1 million events per day. This post is about what it takes to build systems at that scale, the mistakes we made, and the architecture that finally worked.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;We had 10+ downstream systems (data warehouses, analytics platforms, CRM, billing systems) consuming data from our integration platform. The problem:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Data drift&lt;/strong&gt;: System A says &amp;ldquo;order completed,&amp;rdquo; System B says &amp;ldquo;order pending.&amp;rdquo; Which is right?&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Silent failures&lt;/strong&gt;: Errors didn&amp;rsquo;t surface until users reported discrepancies.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Manual reconciliation&lt;/strong&gt;: Engineers spent hours each week manually investigating mismatches.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;We needed a reconciliation framework that:&lt;/p&gt;</description>
     </item>
     <item>

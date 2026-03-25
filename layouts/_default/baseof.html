@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tags | Srivatsav Gorti</title>
-    <meta name="description" content="Polyglot software engineer with 10 years of experience building scalable backend platforms and distributed systems. Currently leading engineering at Warner Bros. Discovery.">
+    <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤟</text></svg>">
 </head>
@@ -12,7 +12,7 @@
     <div class="container">
         <header>
             <nav>
-                <a href="/" class="logo">Srivatsav Gorti</a>
+                <a href="/" class="logo">{{ .Site.Title }}</a>
                 <div class="nav-links">
                     <a href="/about">About</a>
                     <a href="/experience">Experience</a>
@@ -23,21 +23,10 @@
             </nav>
         </header>
         
-        
-<main>
-    <section class="hero">
-        <h1>Writing</h1>
-        <p>Thoughts on building distributed systems, engineering leadership, and lessons learned scaling platforms.</p>
-    </section>
-
-    <div class="posts-list">
-        
-    </div>
-</main>
-
+        {{ block "main" . }}{{ end }}
         
         <footer>
-            <p>&copy; 2026 Srivatsav Gorti. All rights reserved.</p>
+            <p>&copy; {{ now.Year }} {{ .Site.Params.author }}. All rights reserved.</p>
         </footer>
     </div>
 </body>
