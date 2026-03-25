@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Blog</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="welcome-to-my-blog">Welcome to My Blog</h1>
+<p>This is my first post. I&rsquo;ll be sharing thoughts on:</p>
+<ul>
+<li>Distributed systems design</li>
+<li>Event-driven architecture</li>
+<li>Scalability patterns</li>
+<li>Engineering leadership</li>
+<li>Real-world challenges at scale</li>
+</ul>
+<p>More content coming soon!</p>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Srivatsav Gorti. Built with Hugo.</p>
+    </footer>
+
+    <script>
+        const toggle = () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
+        };
+
+        if (localStorage.getItem('dark-mode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+
+        const btn = document.createElement('button');
+        btn.textContent = '🌙';
+        btn.className = 'dark-toggle';
+        btn.onclick = toggle;
+        document.body.appendChild(btn);
+    </script>
+</body>
+</html>

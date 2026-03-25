@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Leadership: How I Learned to Lead Engineering Decisions</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <p>I&rsquo;ve been leading teams for 4 years now—first at Phenom (7 engineers), now at Warner Bros. Discovery (4 engineers).</p>
+<p>Early on, I made mistakes as a leader. I micromanaged. I made decisions in isolation. I avoided conflict.</p>
+<p>This post is about what I learned about leading technical teams.</p>
+<h2 id="the-micromanagement-trap">The Micromanagement Trap</h2>
+<p>At Phenom, when I was first promoted to lead, I did this:</p>
+<pre tabindex="0"><code>Task assignment:
+  - &#34;Dev A, you work on this feature&#34;
+  - &#34;Dev B, you work on that feature&#34;
+  - &#34;Dev C, you&#39;re on bug fixes this sprint&#34;
+</code></pre><p><strong>The problem</strong>:</p>
+<p>My team stopped thinking. They waited for instructions. When I went on vacation, velocity dropped 50%.</p>
+<p><strong>What changed</strong>:</p>
+<p>I shifted to outcome-based leadership:</p>
+<pre tabindex="0"><code>Outcome definition:
+  - &#34;Team, our goal is to ship the data integration platform by June&#34;
+  - &#34;We need to onboard 200 customers, support 500 workflows&#34;
+  - &#34;I&#39;m here to unblock you, not direct you&#34;
+</code></pre><p>Engineers self-organized. They picked features. They collaborated.</p>
+<p><strong>Velocity increased by 40%</strong>.</p>
+<p><strong>Lesson</strong>: Define the &ldquo;what&rdquo; and &ldquo;why,&rdquo; let the team figure out the &ldquo;how.&rdquo;</p>
+<h2 id="the-decision-vacuum">The Decision Vacuum</h2>
+<p>Early on, I made technical decisions alone:</p>
+<pre tabindex="0"><code>Leadership:
+  - Srivatsav: Choose between Apache Flink and Spark Streaming
+  - Srivatsav: 30 minutes
+  - Srivatsav: We&#39;re using Flink
+  - Team: Okay?
+</code></pre><p><strong>The problem</strong>:</p>
+<p>Two issues:</p>
+<ol>
+<li><strong>Buy-in</strong>: Team didn&rsquo;t own the decision. If they disagreed, they didn&rsquo;t speak up.</li>
+<li><strong>Blind spots</strong>: I missed considerations the team would have caught.</li>
+</ol>
+<p>Example: I chose Flink for a project. A junior engineer asked &ldquo;What about Spark Streaming? We have more experience there.&rdquo; I dismissed it. Three months later, we hit a Spark-specific performance issue we could have debugged faster.</p>
+<p><strong>What changed</strong>:</p>
+<p>We introduced ADRs (Architectural Decision Records) and required team input:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># ADR-007: Streaming Framework Selection
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Context
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>We need to process 1M events/day with sub-second latency.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Decision
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Use Apache Flink.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Considered Alternatives
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">-</span> **Spark Streaming**: Rejected due to higher memory overhead for our workload (Team input from Srivatsav)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> **Akka Streams**: Rejected due to team unfamiliarity and lack of mature state management
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> **Flink**: Selected for exactly-once semantics and lower memory footprint (Team consensus)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Consequences
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">### Positive
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">-</span> Lower operational cost (smaller cluster)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Better exactly-once guarantees
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Team has reference documentation
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Negative
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">-</span> Learning curve (estimated 2 weeks ramp-up)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Fewer examples in production at our company
+</span></span></code></pre></div><p>The ADR didn&rsquo;t just record the decision—it recorded <strong>why</strong> we rejected alternatives, including team input.</p>
+<p><strong>Lesson</strong>: Document decisions. Require input. Make rationale visible.</p>
+<h2 id="the-good-enough-conflict">The &ldquo;Good Enough&rdquo; Conflict</h2>
+<p>I struggled with perfectionism early on. I wanted every solution to be optimal.</p>
+<p>At Phenom, we were building a low-code platform. The data model was complex. I spent 3 months designing a &ldquo;perfect&rdquo; schema.</p>
+<p><strong>The problem</strong>:</p>
+<p>While I designed, a competitor launched a simpler solution and signed customers we wanted.</p>
+<p><strong>What I learned</strong>:</p>
+<h3 id="1-speed--perfection">1. Speed &gt; Perfection</h3>
+<p>Shipping &ldquo;good enough&rdquo; in January beats &ldquo;perfect&rdquo; in June.</p>
+<h3 id="2-iterate">2. Iterate</h3>
+<pre tabindex="0"><code>Perfect design (6 months) → v1.0
+Good design (2 months) → v1.0 → feedback → v1.1 → v1.2 (same 6 months)
+</code></pre><p>The second path gets to v1.2 faster and v1.2 is often better than perfect v1.0 because of real-world feedback.</p>
+<h3 id="3-technical-debt-is-negotiable">3. Technical Debt is Negotiable</h3>
+<p>Some shortcuts are okay:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Technical debt accepted for speed</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">processDataLegacy</span>(Data data) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// TODO: Refactor to use new schema (ticket #1234)</span>
+</span></span><span style="display:flex;"><span>    processUsingOldSchema(data);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Document it, track it, pay it back.</p>
+<p><strong>Lesson</strong>: Perfectionism delays learning. Ship fast, iterate, improve based on feedback.</p>
+<h2 id="managing-up-and-out">Managing Up and Out</h2>
+<p>I&rsquo;ve managed two types of expectations: my team&rsquo;s expectations of me, and management&rsquo;s expectations of the team.</p>
+<h3 id="managing-the-team-up">Managing the Team Up</h3>
+<p>Early on, I promised things I couldn&rsquo;t deliver:</p>
+<pre tabindex="0"><code>Leadership:
+  - Srivatsav: &#34;We&#39;ll have the feature done by Friday&#34;
+  - Reality: Blocked by dependency, delayed to next Wednesday
+  - Result: Trust damage
+</code></pre><p><strong>What changed</strong>:</p>
+<p>I became transparent about uncertainty:</p>
+<pre tabindex="0"><code>Leadership:
+  - Srivatsav: &#34;I think we can ship Friday, but there&#39;s a dependency on team B that I haven&#39;t confirmed. I&#39;ll check with them today and confirm by EOD.&#34;
+  - Outcome: Managed expectations, team appreciated honesty
+</code></pre><p><strong>Lesson</strong>: Under-promise, over-deliver. Be clear about uncertainty.</p>
+<h3 id="managing-the-management-out">Managing the Management Out</h3>
+<p>I&rsquo;ve been in conversations where engineering needs were presented as &ldquo;blocking product&rdquo;:</p>
+<pre tabindex="0"><code>Engineering:
+  - &#34;This API change will take 3 months. We need to refactor the data layer.&#34;
+  - Product: &#34;Can&#39;t you just add a wrapper? We&#39;re launching next quarter.&#34;
+  - Engineering: &#34;...I&#39;ll try&#34;
+</code></pre><p>This sets up failure. The wrapper becomes technical debt. The team resents the pressure.</p>
+<p><strong>What changed</strong>:</p>
+<p>I started presenting options with trade-offs:</p>
+<pre tabindex="0"><code>Engineering:
+  - &#34;Here are two options:
+  1. Wrapper API (2 weeks, but will need refactoring later)
+  2. Refactor data layer (3 months, but sustainable)
+  3. Hybrid: Wrapper now, refactored data layer in parallel (6 weeks total, but we can launch in 2 weeks)
+
+  My recommendation: Option 3
+  Reason: Meets timeline, avoids tech debt, builds right foundation&#34;
+
+  Product: &#34;I see the trade-offs. Let&#39;s go with option 3.&#34;
+</code></pre><p><strong>Lesson</strong>: Present choices, not problems. Make trade-offs explicit. Get product involved in technical decisions.</p>
+<h2 id="the-growth-mindset">The Growth Mindset</h2>
+<p>I&rsquo;ve mentored 3 junior engineers formally, and many informally. Here&rsquo;s what works:</p>
+<h3 id="1-set-context-not-tasks">1. Set Context, Not Tasks</h3>
+<p>Instead of &ldquo;fix bug #1234,&rdquo; explain:</p>
+<pre tabindex="0"><code>Mentoring:
+  - &#34;We have a bug in the payment processing flow. Customers report duplicate charges when they retry.
+  - The payment gateway is idempotent, so the issue is in our retry logic.
+  - Look at PaymentService.java, line 156-210.
+  - Let me know if you need help tracing through the logs.&#34;
+</code></pre><p><strong>Lesson</strong>: Context enables autonomy. Tasks produce dependency.</p>
+<h3 id="2-code-reviews-as-teaching-not-policing">2. Code Reviews as Teaching, Not Policing</h3>
+<p>I&rsquo;ve seen two types of code reviews:</p>
+<pre tabindex="0"><code>Bad code review:
+  - &#34;Change line 42. Why did you use ArrayList? Use List.&#34;
+  - &#34;This method name is confusing. Rename it.&#34;
+  - Result: Engineer is defensive, doesn&#39;t ask questions
+
+Good code review:
+  - &#34;Great work on the idempotency here. That was a hard problem.
+  - &#34;One question: What happens if the database transaction rolls back here? We might need a compensating action.&#34;
+  - &#34;For next time, consider splitting this method—it&#39;s getting long.&#34;
+  - Result: Engineer is open to feedback, learns from patterns
+</code></pre><p><strong>Lesson</strong>: Praise what works. Ask questions before critiquing. Frame feedback as teaching, not policing.</p>
+<h3 id="3-public-wins">3. Public Wins</h3>
+<p>I used to keep praise private:</p>
+<pre tabindex="0"><code>Private praise:
+  - &#34;Dev A, you did great work on that feature. I&#39;ll mention it in your performance review.&#34;
+  - Problem: No team recognition. Dev B doesn&#39;t see what good looks like.
+</code></pre><p>Now I&rsquo;m public:</p>
+<pre tabindex="0"><code>Public praise:
+  - Slack: &#34;@team Great work launching the data integration platform! Special shoutout to Dev A for the idempotency fix—that was tricky. Also Dev B for the performance optimization, we shaved 30% off latency.&#34;
+</code></pre><p><strong>Lesson</strong>: Praise publicly, correct privately. The whole team learns from wins.</p>
+<h2 id="the-hardest-lesson-letting-go">The Hardest Lesson: Letting Go</h2>
+<p>This is the one I&rsquo;m still working on.</p>
+<p>When I was at Phenom, I led a team of 7 engineers. Two of them were exceptional. They took on responsibility. They owned features end-to-end.</p>
+<p>After I was promoted and moved to Warner Bros., I missed working with them.</p>
+<p>But I also realized: I needed to let go.</p>
+<ul>
+<li>I can&rsquo;t micromanage from another company</li>
+<li>They&rsquo;re ready to lead their own teams</li>
+<li>My role changed from &ldquo;doer&rdquo; to &ldquo;mentor&rdquo;</li>
+</ul>
+<p><strong>Lesson</strong>: Success of your team is your success. When they outgrow you, that&rsquo;s a victory, not a loss.</p>
+<h2 id="framework-i-use-now">Framework I Use Now</h2>
+<p>When making technical leadership decisions:</p>
+<pre tabindex="0"><code>1. Define the problem (clear, measurable)
+2. Gather team input (diverse perspectives)
+3. Evaluate alternatives (pros/cons)
+4. Decide with rationale (document it)
+5. Communicate decision (why, what, when)
+6. Monitor outcomes (was it right?)
+7. Iterate (change if needed)
+</code></pre><p>This isn&rsquo;t a straight line—it&rsquo;s a loop. Decision → Feedback → Iteration.</p>
+<h2 id="what-id-tell-new-engineering-leaders">What I&rsquo;d Tell New Engineering Leaders</h2>
+<ol>
+<li>
+<p><strong>Your job is to enable, not execute</strong></p>
+<ul>
+<li>The best code you write today is obsolete. The best team you build lasts.</li>
+</ul>
+</li>
+<li>
+<p><strong>Lead by example</strong></p>
+<ul>
+<li>When I say &ldquo;let&rsquo;s ship quality,&rdquo; I ship quality.</li>
+<li>When I say &ldquo;let&rsquo;s document,&rdquo; I document.</li>
+<li>Hypocrisy is visible instantly.</li>
+</ul>
+</li>
+<li>
+<p><strong>Protect your team</strong></p>
+<ul>
+<li>Fight unrealistic deadlines</li>
+<li>Challenge bad decisions (even from leadership)</li>
+<li>Celebrate wins publicly</li>
+</ul>
+</li>
+<li>
+<p><strong>Invest in people</strong></p>
+<ul>
+<li>Mentorship isn&rsquo;t &ldquo;nice to have&rdquo;—it&rsquo;s your core responsibility</li>
+<li>A great engineer who leaves is a failure of leadership</li>
+</ul>
+</li>
+<li>
+<p><strong>Be wrong confidently</strong></p>
+<ul>
+<li>You will be wrong. Be transparent about it.</li>
+<li>&ldquo;I was wrong about X, here&rsquo;s what I learned&rdquo; earns more respect than pretending to be right.</li>
+</ul>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Technical leadership is about making space for engineers to do their best work. It&rsquo;s not about being the best coder—it&rsquo;s about being the best multiplier.</p>
+<p>When your team succeeds, you succeed. When your team fails, you failed.</p>
+<hr>
+<p><strong>What leadership lessons have you learned? What would you add to this framework?</strong></p>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Srivatsav Gorti. Built with Hugo.</p>
+    </footer>
+
+    <script>
+        const toggle = () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
+        };
+
+        if (localStorage.getItem('dark-mode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+
+        const btn = document.createElement('button');
+        btn.textContent = '🌙';
+        btn.className = 'dark-toggle';
+        btn.onclick = toggle;
+        document.body.appendChild(btn);
+    </script>
+</body>
+</html>
