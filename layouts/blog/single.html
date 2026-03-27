@@ -1,0 +1,124 @@
+{{ define "main" }}
+<main class="blog-post">
+    <article>
+        <!-- Post Header -->
+        <header class="post-header">
+            <h1>{{ .Title }}</h1>
+            <div class="post-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                <span class="separator">•</span>
+                <span class="reading-time" id="reading-time">{{ div (len .Content) 2000 }} min read</span>
+                {{ with .Params.tags }}
+                <span class="separator">•</span>
+                <span class="tags">
+                    {{ range . }}
+                    <span class="tag">{{ . }}</span>
+                    {{ end }}
+                </span>
+                {{ end }}
+            </div>
+        </header>
+
+        <!-- Table of Contents -->
+        {{ if .TableOfContents }}
+        <aside class="toc" id="toc">
+            <div class="toc-header">
+                <h3>Contents</h3>
+                <button class="toc-toggle" id="toc-toggle" aria-label="Toggle table of contents">
+                    <span>−</span>
+                </button>
+            </div>
+            <nav class="toc-content" id="toc-content">
+                {{ .TableOfContents }}
+            </nav>
+        </aside>
+        {{ end }}
+
+        <!-- Post Content -->
+        <div class="post-content" id="post-content">
+            {{ .Content }}
+        </div>
+
+        <!-- Post Footer -->
+        <footer class="post-footer">
+            <a href="{{ "blog" | relURL }}" class="back-link">← Back to all posts</a>
+            
+            {{ with .Params.tags }}
+            <div class="post-tags">
+                <span>Tagged:</span>
+                {{ range . }}
+                <a href="{{ "tags" | relURL }}/{{ . | urlize }}" class="tag">{{ . }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </footer>
+    </article>
+
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress" id="reading-progress"></div>
+</main>
+
+<!-- Table of Contents & Reading Progress Scripts -->
+<script>
+(function() {
+    // Table of Contents Toggle
+    const tocToggle = document.getElementById('toc-toggle');
+    const tocContent = document.getElementById('toc-content');
+    
+    if (tocToggle && tocContent) {
+        tocToggle.addEventListener('click', () => {
+            tocContent.classList.toggle('collapsed');
+            tocToggle.querySelector('span').textContent = 
+                tocContent.classList.contains('collapsed') ? '+' : '−';
+        });
+    }
+    
+    // Reading Progress Bar
+    const progressBar = document.getElementById('reading-progress');
+    
+    if (progressBar) {
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+    }
+    
+    // Smooth scroll for TOC links
+    document.querySelectorAll('#toc a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+    
+    // Highlight current section in TOC
+    const sections = document.querySelectorAll('h2[id], h3[id]');
+    const tocLinks = document.querySelectorAll('#toc a');
+    
+    function highlightTOC() {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.pageYOffset >= sectionTop - 100) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', highlightTOC);
+    highlightTOC();
+})();
+</script>
+{{ end }}

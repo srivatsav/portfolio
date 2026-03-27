@@ -18,6 +18,16 @@ theme = []
   experience = "/experience/:slug/"
   projects = "/projects/:slug/"
 
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
+  [markup.highlight]
+    style = "github"
+    lineNos = true
+    codeFences = true
+
 [taxonomies]
   tag = "tags"
   category = "categories"
