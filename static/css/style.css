@@ -392,3 +392,51 @@ main {
     color: var(--text-tertiary);
     font-weight: 500;
 }
+
+/* Logo Animation */
+.hero-logo {
+    margin-bottom: 1.5rem;
+}
+
+.hero-logo svg {
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s ease;
+}
+
+.hero-logo svg:hover {
+    transform: scale(1.05);
+}
+
+/* Pulse animation for latest gig */
+.latest-gig .pulse {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); }
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    text-align: center;
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+    margin-top: 4rem;
+}
+
+footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--accent);
+}

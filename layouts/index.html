@@ -1,82 +1,120 @@
 {{ define "main" }}
 <main>
+    <!-- Hero Section with Logo -->
     <section class="hero">
-        <h1>{{ .Site.Title }}</h1>
-        <p class="bio">
-            <strong>{{ .Site.Params.author }}</strong> — {{ .Site.Params.role }}
-        </p>
-        <p>
-            {{ .Site.Params.description }}
-        </p>
+        <!-- SG Logo -->
+        <div class="hero-logo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background circle -->
+                <circle cx="50" cy="50" r="48" fill="none" stroke="#14b8a6" stroke-width="2"/>
+                <!-- SG Letters -->
+                <text x="50" y="58" text-anchor="middle" font-family="'Maple Mono CN', monospace" font-size="36" font-weight="700" fill="#14b8a6">SG</text>
+            </svg>
+        </div>
+        
+        <h1>{{ .Site.Params.author }}</h1>
+        <p class="subtitle">{{ .Site.Params.role }}</p>
+        
+        <!-- Latest Gig Badge -->
+        <div class="latest-gig">
+            <span class="pulse"></span>
+            Currently: Staff Software Engineer @ Warner Bros. Discovery
+        </div>
+        
+        <p class="bio">{{ .Site.Params.description }}</p>
         
         <div class="social-links">
             <a href="mailto:{{ .Site.Params.email }}" target="_blank">Email</a>
             <a href="https://github.com/srivatsav" target="_blank" rel="noopener">GitHub</a>
             <a href="https://linkedin.com/in/srivatsav-gorti" target="_blank" rel="noopener">LinkedIn</a>
-            {{ with .Site.Params.twitter }}
-            <a href="https://twitter.com/{{ . }}" target="_blank" rel="noopener">Twitter</a>
-            {{ end }}
-            {{ with .Site.Params.youtube }}
-            <a href="https://youtube.com/{{ . }}" target="_blank" rel="noopener">YouTube</a>
-            {{ end }}
         </div>
     </section>
 
-    {{ with .Site.GetPage "section" "blog" }}
-    {{ $posts := where .Pages "Kind" "page" | first 3 }}
-    {{ if $posts }}
+    <!-- Skills Section -->
     <section class="section-header">
-        <h2>Writing</h2>
-        <a href="{{ "blog" | relURL }}">View all →</a>
+        <h2>Skills</h2>
     </section>
     
-    <div class="posts-list">
-        {{ range $posts }}
-        <article class="post-item">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-            <div>
-                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-                {{ if .Summary }}
-                <p class="summary">{{ .Summary }}</p>
-                {{ end }}
-            </div>
-        </article>
-        {{ end }}
+    <div class="skills-grid">
+        <!-- Languages -->
+        <span class="skill-tag">☕ Java</span>
+        <span class="skill-tag">🐍 Python</span>
+        <span class="skill-tag">⚡ PySpark</span>
+        <span class="skill-tag">📊 Databricks</span>
+        
+        <!-- Frameworks -->
+        <span class="skill-tag">🌱 Spring Boot</span>
+        <span class="skill-tag">☸️ Kubernetes</span>
+        <span class="skill-tag">🐳 Docker</span>
+        
+        <!-- Data -->
+        <span class="skill-tag">🗄️ PostgreSQL</span>
+        <span class="skill-tag">🍃 MongoDB</span>
+        <span class="skill-tag">⚡ Apache Flink</span>
+        
+        <!-- Cloud/DevOps -->
+        <span class="skill-tag">☁️ AWS</span>
+        <span class="skill-tag">🚀 Terraform</span>
+        <span class="skill-tag">📦 Helm</span>
     </div>
-    {{ end }}
-    {{ end }}
 
+    <!-- Experience Highlights -->
     <section class="section-header">
-        <h2>Experience</h2>
+        <h2>Experience Highlights</h2>
         <a href="{{ "experience" | relURL }}">View all →</a>
     </section>
     
-    <div class="experience-list">
-        {{ range first 3 (where .Site.RegularPages "Section" "experience") }}
+    <div class="experience-highlights">
         <div class="experience-item">
-            <span class="date">{{ .Params.date }}</span>
+            <span class="date">2025 — Present</span>
             <div>
-                <div class="role">{{ .Title }}</div>
-                <div class="company">{{ .Params.company }}</div>
+                <div class="role">Staff Software Engineer</div>
+                <div class="company">Warner Bros. Discovery</div>
+                <div class="highlight">💰 Saved $1.2M/year by replacing vendor software</div>
             </div>
         </div>
-        {{ end }}
+        
+        <div class="experience-item">
+            <span class="date">2022 — 2025</span>
+            <div>
+                <div class="role">SDE-III → Lead</div>
+                <div class="company">Phenom</div>
+                <div class="highlight">📈 250+ customers, 1000+ integrations onboarded</div>
+            </div>
+        </div>
+        
+        <div class="experience-item">
+            <span class="date">2020 — 2022</span>
+            <div>
+                <div class="role">SDE-II</div>
+                <div class="company">Phenom</div>
+                <div class="highlight">⚡ Built system handling 1M events/day</div>
+            </div>
+        </div>
     </div>
 
+    <!-- Featured Blog Post -->
+    {{ with .Site.GetPage "section" "blog" }}
+    {{ $latestPost := index (where .Pages "Kind" "page") 0 }}
+    {{ if $latestPost }}
     <section class="section-header">
-        <h2>Projects</h2>
+        <h2>Latest Writing</h2>
+        <a href="{{ "blog" | relURL }}">View all →</a>
     </section>
     
-    <div class="projects-grid">
-        {{ range where .Site.RegularPages "Section" "projects" }}
-        <div class="project-item">
-            <h3>{{ .Title }}</h3>
-            <p class="project-desc">{{ .Summary }}</p>
-            {{ with .Params.link }}
-            <a href="{{ . }}" target="_blank" rel="noopener" class="project-link">View Project →</a>
+    <article class="post-item featured">
+        <time datetime="{{ $latestPost.Date.Format "2006-01-02" }}">{{ $latestPost.Date.Format "Jan 2, 2006" }}</time>
+        <div>
+            <h3><a href="{{ $latestPost.RelPermalink }}">{{ $latestPost.Title }}</a></h3>
+            {{ if $latestPost.Summary }}
+            <p class="summary">{{ $latestPost.Summary | truncate 200 }}</p>
             {{ end }}
+            <div class="meta">
+                <span class="reading-time">{{ div (len $latestPost.Content) 2000 }} min read</span>
+            </div>
         </div>
-        {{ end }}
-    </div>
+    </article>
+    {{ end }}
+    {{ end }}
 </main>
 {{ end }}
