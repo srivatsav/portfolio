@@ -398,14 +398,107 @@ main {
     margin-bottom: 1.5rem;
 }
 
-.hero-logo svg {
-    width: 80px;
-    height: 80px;
-    transition: transform 0.3s ease;
+.logo-svg {
+    width: 100px;
+    height: 100px;
 }
 
-.hero-logo svg:hover {
-    transform: scale(1.05);
+/* Animated rings */
+.logo-ring {
+    transform-origin: center;
+    animation: ring-pulse 3s ease-in-out infinite;
+}
+
+.logo-ring-1 {
+    animation-delay: 0s;
+}
+
+.logo-ring-2 {
+    animation-delay: 0.5s;
+}
+
+.logo-ring-3 {
+    animation-delay: 1s;
+}
+
+@keyframes ring-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.6;
+    }
+}
+
+/* Letter animations - draw in effect */
+.logo-letter {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: draw-letter 2s ease-out forwards;
+}
+
+.logo-s {
+    animation-delay: 0.3s;
+}
+
+.logo-g {
+    animation-delay: 0.8s;
+}
+
+.logo-g-bar {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: draw-bar 0.5s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes draw-letter {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes draw-bar {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Center dot pulse */
+.logo-dot {
+    animation: dot-pulse 2s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes dot-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+/* Hover effect - speed up animation */
+.hero-logo:hover .logo-ring {
+    animation-duration: 1s;
+}
+
+.hero-logo:hover .logo-letter {
+    animation: draw-letter 1s ease-out forwards, glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 2px #14b8a6);
+    }
+    to {
+        filter: drop-shadow(0 0 8px #14b8a6);
+    }
 }
 
 /* Pulse animation for latest gig */
