@@ -27,7 +27,7 @@
     {{ if $posts }}
     <section class="section-header">
         <h2>Writing</h2>
-        <a href="/blog">View all →</a>
+        <a href="{{ "blog" | relURL }}">View all →</a>
     </section>
     
     <div class="posts-list">
@@ -48,7 +48,7 @@
 
     <section class="section-header">
         <h2>Experience</h2>
-        <a href="/experience">View all →</a>
+        <a href="{{ "experience" | relURL }}">View all →</a>
     </section>
     
     <div class="experience-list">
