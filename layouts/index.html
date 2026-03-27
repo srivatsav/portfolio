@@ -12,98 +12,151 @@
         
         <p class="bio">{{ .Site.Params.description }}</p>
         
-        <div class="social-links">
-            <a href="mailto:{{ .Site.Params.email }}" target="_blank">Email</a>
-            <a href="https://github.com/srivatsav" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://linkedin.com/in/srivatsav-gorti" target="_blank" rel="noopener">LinkedIn</a>
+        <div class="hero-cta">
+            <a href="{{ "experience" | relURL }}" class="btn-primary">View Resume</a>
+            <a href="mailto:{{ .Site.Params.email }}" class="btn-secondary">Get in Touch</a>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="section-header">
-        <h2>Skills</h2>
+    <!-- Works/Projects Section -->
+    <section class="section works-section">
+        <h2 class="section-title">Selected Work</h2>
+        
+        <div class="works-grid">
+            <article class="work-card">
+                <div class="work-content">
+                    <h3>Financial Reporting Platform</h3>
+                    <p class="work-company">Warner Bros. Discovery</p>
+                    <p class="work-desc">Built SOX compliance platform serving 100+ stakeholders. Replaced vendor solution, saving $1.2M annually.</p>
+                    <div class="work-tags">
+                        <span>PySpark</span>
+                        <span>Databricks</span>
+                        <span>Terraform</span>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="work-card">
+                <div class="work-content">
+                    <h3>Data Integration Platform</h3>
+                    <p class="work-company">Phenom</p>
+                    <p class="work-desc">Low-code/no-code platform onboarding 250+ customers with 1000+ integrations. Reduced onboarding time by 75%.</p>
+                    <div class="work-tags">
+                        <span>Java</span>
+                        <span>Apache Flink</span>
+                        <span>Kubernetes</span>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="work-card">
+                <div class="work-content">
+                    <h3>Reconciliation Framework</h3>
+                    <p class="work-company">Phenom</p>
+                    <p class="work-desc">Built system processing 1M events/day across 10+ downstream systems with auto-replay capabilities.</p>
+                    <div class="work-tags">
+                        <span>Java</span>
+                        <span>Apache NiFi</span>
+                        <span>Event-Driven</span>
+                    </div>
+                </div>
+            </article>
+        </div>
     </section>
-    
-    <div class="skills-grid">
-        <!-- Languages -->
-        <span class="skill-tag">☕ Java</span>
-        <span class="skill-tag">🐍 Python</span>
-        <span class="skill-tag">⚡ PySpark</span>
-        <span class="skill-tag">📊 Databricks</span>
-        
-        <!-- Frameworks -->
-        <span class="skill-tag">🌱 Spring Boot</span>
-        <span class="skill-tag">☸️ Kubernetes</span>
-        <span class="skill-tag">🐳 Docker</span>
-        
-        <!-- Data -->
-        <span class="skill-tag">🗄️ PostgreSQL</span>
-        <span class="skill-tag">🍃 MongoDB</span>
-        <span class="skill-tag">⚡ Apache Flink</span>
-        
-        <!-- Cloud/DevOps -->
-        <span class="skill-tag">☁️ AWS</span>
-        <span class="skill-tag">🚀 Terraform</span>
-        <span class="skill-tag">📦 Helm</span>
-    </div>
 
-    <!-- Experience Highlights -->
-    <section class="section-header">
-        <h2>Experience Highlights</h2>
-        <a href="{{ "experience" | relURL }}">View all →</a>
+    <!-- Services/Skills Section -->
+    <section class="section services-section">
+        <h2 class="section-title">Services</h2>
+        
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>Backend Architecture</h3>
+                <p>Distributed systems, microservices, event-driven architecture, high-throughput data pipelines.</p>
+            </div>
+            
+            <div class="service-item">
+                <h3>Data Engineering</h3>
+                <p>PySpark, Databricks, real-time streaming, ETL pipelines, data warehousing.</p>
+            </div>
+            
+            <div class="service-item">
+                <h3>Platform Engineering</h3>
+                <p>Kubernetes, Docker, Terraform, CI/CD, cloud infrastructure on AWS.</p>
+            </div>
+            
+            <div class="service-item">
+                <h3>Technical Leadership</h3>
+                <p>Team mentoring, architecture decisions, code reviews, system design.</p>
+            </div>
+        </div>
     </section>
-    
-    <div class="experience-highlights">
-        <div class="experience-item">
-            <span class="date">2025 — Present</span>
-            <div>
-                <div class="role">Staff Software Engineer</div>
-                <div class="company">Warner Bros. Discovery</div>
-                <div class="highlight">💰 Saved $1.2M/year by replacing vendor software</div>
-            </div>
-        </div>
-        
-        <div class="experience-item">
-            <span class="date">2022 — 2025</span>
-            <div>
-                <div class="role">SDE-III → Lead</div>
-                <div class="company">Phenom</div>
-                <div class="highlight">📈 250+ customers, 1000+ integrations onboarded</div>
-            </div>
-        </div>
-        
-        <div class="experience-item">
-            <span class="date">2020 — 2022</span>
-            <div>
-                <div class="role">SDE-II</div>
-                <div class="company">Phenom</div>
-                <div class="highlight">⚡ Built system handling 1M events/day</div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Featured Blog Post -->
+    <!-- Resume/Experience Section -->
+    <section class="section resume-section">
+        <h2 class="section-title">Experience</h2>
+        
+        <div class="resume-list">
+            <div class="resume-item">
+                <div class="resume-header">
+                    <h3>Staff Software Engineer</h3>
+                    <span class="resume-date">2025 — Present</span>
+                </div>
+                <p class="resume-company">Warner Bros. Discovery</p>
+                <p class="resume-desc">Leading engineering for Financial Reporting platform. 4 engineers. $1.2M cost savings.</p>
+            </div>
+            
+            <div class="resume-item">
+                <div class="resume-header">
+                    <h3>SDE-III → Engineering Lead</h3>
+                    <span class="resume-date">2022 — 2025</span>
+                </div>
+                <p class="resume-company">Phenom</p>
+                <p class="resume-desc">Led team of 7. 250+ customers onboarded. 1000+ integrations.</p>
+            </div>
+            
+            <div class="resume-item">
+                <div class="resume-header">
+                    <h3>SDE-II</h3>
+                    <span class="resume-date">2020 — 2022</span>
+                </div>
+                <p class="resume-company">Phenom</p>
+                <p class="resume-desc">Built reconciliation framework processing 1M events/day.</p>
+            </div>
+        </div>
+        
+        <a href="{{ "experience" | relURL }}" class="view-all">View full resume →</a>
+    </section>
+
+    <!-- Blog Section -->
     {{ with .Site.GetPage "section" "blog" }}
     {{ $latestPost := index (where .Pages "Kind" "page") 0 }}
     {{ if $latestPost }}
-    <section class="section-header">
-        <h2>Latest Writing</h2>
-        <a href="{{ "blog" | relURL }}">View all →</a>
-    </section>
-    
-    <article class="post-item featured">
-        <time datetime="{{ $latestPost.Date.Format "2006-01-02" }}">{{ $latestPost.Date.Format "Jan 2, 2006" }}</time>
-        <div>
+    <section class="section blog-section">
+        <h2 class="section-title">Latest Writing</h2>
+        
+        <article class="blog-preview">
+            <time datetime="{{ $latestPost.Date.Format "2006-01-02" }}">{{ $latestPost.Date.Format "January 2, 2006" }}</time>
             <h3><a href="{{ $latestPost.RelPermalink }}">{{ $latestPost.Title }}</a></h3>
             {{ if $latestPost.Summary }}
-            <p class="summary">{{ $latestPost.Summary | truncate 200 }}</p>
+            <p>{{ $latestPost.Summary | truncate 180 }}</p>
             {{ end }}
-            <div class="meta">
-                <span class="reading-time">{{ div (len $latestPost.Content) 2000 }} min read</span>
-            </div>
+            <a href="{{ $latestPost.RelPermalink }}" class="read-more">Read article →</a>
+        </article>
+        
+        <a href="{{ "blog" | relURL }}" class="view-all">View all posts →</a>
+    </section>
+    {{ end }}
+    {{ end }}
+
+    <!-- Contact Section -->
+    <section class="section contact-section">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="contact-text">Open to discussing engineering challenges, architecture decisions, or potential collaborations.</p>
+        <div class="contact-links">
+            <a href="mailto:{{ .Site.Params.email }}" class="contact-link">{{ .Site.Params.email }}</a>
+            <a href="https://linkedin.com/in/srivatsav-gorti" class="contact-link">LinkedIn</a>
+            <a href="https://github.com/srivatsav" class="contact-link">GitHub</a>
         </div>
-    </article>
-    {{ end }}
-    {{ end }}
+    </section>
 </main>
 {{ end }}

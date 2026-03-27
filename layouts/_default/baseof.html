@@ -13,7 +13,7 @@
     <!-- Maple Mono from jsDelivr CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chinese-fonts/maple-mono-cn@1.0.1/dist/MapleMono-CN-Regular/result.css">
     
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}?v=8">
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}?v=9">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤟</text></svg>">
 </head>
 <body>
@@ -36,10 +36,6 @@
                     <a href="{{ "blog" | relURL }}">Blog</a>
                     <a href="https://github.com/srivatsav" target="_blank" rel="noopener">GitHub</a>
                     <a href="https://linkedin.com/in/srivatsav-gorti" target="_blank" rel="noopener">LinkedIn</a>
-                    <!-- Search button -->
-                    <button class="search-toggle" id="search-toggle" aria-label="Search">
-                        <span>🔍</span>
-                    </button>
                     <!-- Dark mode toggle -->
                     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
                         <span class="theme-icon">🌙</span>
@@ -50,131 +46,10 @@
         
         {{ block "main" . }}{{ end }}
         
-        <!-- Search Modal -->
-        <div class="search-modal" id="search-modal">
-            <div class="search-container">
-                <div class="search-header">
-                    <input type="text" id="search-input" placeholder="Search posts..." autocomplete="off">
-                    <button class="search-close" id="search-close">✕</button>
-                </div>
-                <div class="search-results" id="search-results"></div>
-            </div>
-        </div>
-        
         <footer>
             <p>&copy; {{ now.Year }} {{ .Site.Params.author }}. All rights reserved.</p>
         </footer>
     </div>
-    
-    <!-- Fuse.js for search -->
-    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
-    
-    <!-- Search index -->
-    <script>
-    // Search index data
-    window.searchIndex = [
-    {{ range .Site.RegularPages }}
-    {{ if eq .Section "blog" }}
-        {
-            title: {{ .Title | jsonify }},
-            summary: {{ .Summary | plainify | jsonify }},
-            url: {{ .RelPermalink | jsonify }},
-            date: {{ .Date.Format "Jan 2, 2006" | jsonify }},
-            tags: {{ .Params.tags | jsonify }}
-        },
-    {{ end }}
-    {{ end }}
-    ];
-    </script>
-    
-    <!-- Search functionality -->
-    <script>
-    (function() {
-        const searchToggle = document.getElementById('search-toggle');
-        const searchModal = document.getElementById('search-modal');
-        const searchClose = document.getElementById('search-close');
-        const searchInput = document.getElementById('search-input');
-        const searchResults = document.getElementById('search-results');
-        
-        // Initialize Fuse.js
-        const fuse = new Fuse(window.searchIndex, {
-            keys: ['title', 'summary', 'tags'],
-            threshold: 0.3,
-            includeScore: true
-        });
-        
-        // Open search modal
-        searchToggle.addEventListener('click', () => {
-            searchModal.classList.add('active');
-            searchInput.focus();
-            document.body.style.overflow = 'hidden';
-        });
-        
-        // Close search modal
-        function closeSearch() {
-            searchModal.classList.remove('active');
-            searchInput.value = '';
-            searchResults.innerHTML = '';
-            document.body.style.overflow = '';
-        }
-        
-        searchClose.addEventListener('click', closeSearch);
-        
-        // Close on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && searchModal.classList.contains('active')) {
-                closeSearch();
-            }
-        });
-        
-        // Close on click outside
-        searchModal.addEventListener('click', (e) => {
-            if (e.target === searchModal) {
-                closeSearch();
-            }
-        });
-        
-        // Perform search
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.trim();
-            
-            if (query.length === 0) {
-                searchResults.innerHTML = '';
-                return;
-            }
-            
-            const results = fuse.search(query);
-            
-            if (results.length === 0) {
-                searchResults.innerHTML = '<div class="no-results">No posts found</div>';
-                return;
-            }
-            
-            const html = results.map(result => `
-                <a href="${result.item.url}" class="search-result">
-                    <div class="search-result-title">${result.item.title}</div>
-                    <div class="search-result-meta">
-                        <span>${result.item.date}</span>
-                        ${result.item.tags ? `<span class="search-result-tags">${result.item.tags.map(t => '#' + t).join(' ')}</span>` : ''}
-                    </div>
-                    <div class="search-result-summary">${result.item.summary.substring(0, 150)}...</div>
-                </a>
-            `).join('');
-            
-            searchResults.innerHTML = html;
-        });
-        
-        // Keyboard shortcut: Cmd/Ctrl + K
-        document.addEventListener('keydown', (e) => {
-            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-                e.preventDefault();
-                searchModal.classList.add('active');
-                searchInput.focus();
-                document.body.style.overflow = 'hidden';
-            }
-        });
-    })();
-    </script>
     
     <!-- Theme toggle script -->
     <script>
