@@ -255,34 +255,64 @@ main {
     text-decoration: underline;
 }
 
-/* Skills Section */
-.skills-grid {
+/* Selected Work Section */
+.work-list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
-.skill-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    transition: all 0.2s;
+.work-item {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
 }
 
-.skill-tag:hover {
-    border-color: var(--accent);
+.work-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.work-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.work-item h3 a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.work-item h3 a:hover {
     color: var(--accent);
 }
 
-.skill-tag i {
-    font-size: 1rem;
+.work-tech {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.work-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Experience with Tech */
+.experience-tech {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    margin-top: 0.5rem;
+}
+
+/* Skills Grid - Hide */
+.skills-grid,
+.skill-tag {
+    display: none;
 }
 
 /* Experience Highlights */

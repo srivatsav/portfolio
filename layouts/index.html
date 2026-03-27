@@ -19,37 +19,34 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Selected Work -->
     <section class="section-header">
-        <h2>Skills</h2>
+        <h2>Selected Work</h2>
     </section>
     
-    <div class="skills-grid">
-        <!-- Languages -->
-        <span class="skill-tag">☕ Java</span>
-        <span class="skill-tag">🐍 Python</span>
-        <span class="skill-tag">⚡ PySpark</span>
-        <span class="skill-tag">📊 Databricks</span>
+    <div class="work-list">
+        <article class="work-item">
+            <h3><a href="{{ "blog" | relURL }}/how-i-saved-1.2m/year-by-replacing-vendor-software/">Financial Reporting Platform</a></h3>
+            <p class="work-tech">PySpark · Databricks · Terraform · AWS</p>
+            <p class="work-desc">Built SOX compliance platform serving 100+ stakeholders. Replaced vendor solution, saving $1.2M annually.</p>
+        </article>
         
-        <!-- Frameworks -->
-        <span class="skill-tag">🌱 Spring Boot</span>
-        <span class="skill-tag">☸️ Kubernetes</span>
-        <span class="skill-tag">🐳 Docker</span>
+        <article class="work-item">
+            <h3><a href="{{ "blog" | relURL }}/building-systems-that-handle-1m-events-per-day-lessons-from-the-trenches/">Data Integration Platform</a></h3>
+            <p class="work-tech">Java · Apache Flink · Kubernetes · PostgreSQL</p>
+            <p class="work-desc">Low-code platform onboarding 250+ customers with 1000+ integrations. Reduced onboarding time by 75%.</p>
+        </article>
         
-        <!-- Data -->
-        <span class="skill-tag">🗄️ PostgreSQL</span>
-        <span class="skill-tag">🍃 MongoDB</span>
-        <span class="skill-tag">⚡ Apache Flink</span>
-        
-        <!-- Cloud/DevOps -->
-        <span class="skill-tag">☁️ AWS</span>
-        <span class="skill-tag">🚀 Terraform</span>
-        <span class="skill-tag">📦 Helm</span>
+        <article class="work-item">
+            <h3>Reconciliation Framework</h3>
+            <p class="work-tech">Java · Spring Boot · Apache NiFi · MongoDB</p>
+            <p class="work-desc">Event-driven system processing 1M events/day across 10+ downstream systems with auto-replay capabilities.</p>
+        </article>
     </div>
 
-    <!-- Experience Highlights -->
+    <!-- Experience -->
     <section class="section-header">
-        <h2>Experience Highlights</h2>
+        <h2>Experience</h2>
         <a href="{{ "experience" | relURL }}">View all →</a>
     </section>
     
@@ -59,16 +56,16 @@
             <div>
                 <div class="role">Staff Software Engineer</div>
                 <div class="company">Warner Bros. Discovery</div>
-                <div class="highlight">💰 Saved $1.2M/year by replacing vendor software</div>
+                <p class="experience-tech">PySpark · Databricks · Terraform · AWS</p>
             </div>
         </div>
         
         <div class="experience-item">
             <span class="date">2022 — 2025</span>
             <div>
-                <div class="role">SDE-III → Lead</div>
+                <div class="role">SDE-III → Engineering Lead</div>
                 <div class="company">Phenom</div>
-                <div class="highlight">📈 250+ customers, 1000+ integrations onboarded</div>
+                <p class="experience-tech">Java · Apache Flink · Kubernetes · PostgreSQL</p>
             </div>
         </div>
         
@@ -77,7 +74,7 @@
             <div>
                 <div class="role">SDE-II</div>
                 <div class="company">Phenom</div>
-                <div class="highlight">⚡ Built system handling 1M events/day</div>
+                <p class="experience-tech">Java · Spring Boot · MongoDB · Docker</p>
             </div>
         </div>
     </div>
