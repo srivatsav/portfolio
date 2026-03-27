@@ -88,6 +88,22 @@ body {
     padding: 0 1.5rem;
 }
 
+/* Blog posts - wider like Medium */
+.blog-post .container {
+    max-width: 900px;
+}
+
+.post-content {
+    font-size: 1.125rem;
+    line-height: 1.9;
+    max-width: 100%;
+}
+
+.post-content p {
+    margin-bottom: 1.75rem;
+    color: var(--text-secondary);
+}
+
 /* Header & Navigation */
 header {
     padding: 2rem 0;
@@ -606,18 +622,19 @@ footer a:hover {
     margin-left: 0.5rem;
 }
 
-/* Post Content */
+/* Post Content - Medium style width */
 .post-content {
-    font-size: 1.05rem;
-    line-height: 1.8;
+    font-size: 1.125rem;
+    line-height: 1.9;
+    max-width: 100%;
 }
 
 .post-content h2 {
     font-family: var(--font-mono);
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 600;
-    margin: 2.5rem 0 1rem;
-    padding-top: 1rem;
+    margin: 3rem 0 1.25rem;
+    padding-top: 1.5rem;
     border-top: 1px solid var(--border);
 }
 
@@ -628,13 +645,13 @@ footer a:hover {
 
 .post-content h3 {
     font-family: var(--font-mono);
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     font-weight: 600;
-    margin: 2rem 0 0.75rem;
+    margin: 2.5rem 0 1rem;
 }
 
 .post-content p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
     color: var(--text-secondary);
 }
 
