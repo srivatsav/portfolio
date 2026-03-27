@@ -393,41 +393,60 @@ main {
     font-weight: 500;
 }
 
-/* TechCrunch Style Logo */
-.hero-logo {
-    margin-bottom: 2rem;
+/* Header Logo */
+.logo {
+    display: flex;
+    align-items: center;
 }
 
-.logo-svg {
-    width: 80px;
-    height: 80px;
+.header-logo-svg {
+    width: 40px;
+    height: 40px;
 }
 
-.logo-bg {
+.header-logo-svg .logo-bg {
     transform-origin: center;
-    animation: logo-pop 0.5s ease-out;
+    animation: logo-scale 0.5s ease-out;
 }
 
-@keyframes logo-pop {
-    0% { transform: scale(0); opacity: 0; }
-    80% { transform: scale(1.1); }
-    100% { transform: scale(1); opacity: 1; }
+@keyframes logo-scale {
+    0% { transform: scale(0); }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
-.logo-letter {
+.header-logo-svg .logo-s {
     opacity: 0;
-    animation: letter-fade 0.3s ease-out forwards;
-    animation-delay: 0.4s;
+    animation: letter-slide 0.4s ease-out forwards;
+    animation-delay: 0.3s;
 }
 
-@keyframes letter-fade {
-    to { opacity: 1; }
+.header-logo-svg .logo-g {
+    opacity: 0;
+    animation: letter-slide 0.4s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes letter-slide {
+    0% { 
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    100% { 
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 /* Hover effect */
-.hero-logo:hover .logo-svg {
-    transform: scale(1.05);
+.logo:hover .header-logo-svg {
+    transform: scale(1.1);
     transition: transform 0.2s;
+}
+
+/* Old hero logo styles (keep for reference) */
+.hero-logo {
+    display: none;
 }
 
 /* Pulse animation for latest gig */
