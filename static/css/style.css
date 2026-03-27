@@ -393,7 +393,7 @@ main {
     font-weight: 500;
 }
 
-/* Logo Animation - Geometric Monogram */
+/* Logo Animation - Geometric Monogram (Animate once, then stop) */
 .hero-logo {
     margin-bottom: 1.5rem;
 }
@@ -403,89 +403,61 @@ main {
     height: 100px;
 }
 
-/* Hexagon rotation animation */
-.logo-hex {
-    transform-origin: center;
-    animation: hex-rotate 20s linear infinite;
+/* Frame draws in */
+.logo-frame {
+    stroke-dasharray: 320;
+    stroke-dashoffset: 320;
+    animation: draw-frame 1s ease-out forwards;
 }
 
-.logo-hex-inner {
-    transform-origin: center;
-    animation: hex-rotate-reverse 15s linear infinite;
-}
-
-@keyframes hex-rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes hex-rotate-reverse {
-    from { transform: rotate(360deg); }
-    to { transform: rotate(0deg); }
-}
-
-/* Geometric letters - slide in animation */
-.logo-s-geo {
-    stroke-dasharray: 60;
-    stroke-dashoffset: 60;
-    animation: slide-in-s 1s ease-out forwards;
-}
-
-.logo-g-geo {
-    stroke-dasharray: 60;
-    stroke-dashoffset: 60;
-    animation: slide-in-g 1s ease-out forwards;
-    animation-delay: 0.3s;
-}
-
-.logo-connect {
-    stroke-dasharray: 10;
-    stroke-dashoffset: 10;
-    animation: connect-draw 0.5s ease-out forwards;
-    animation-delay: 0.8s;
-}
-
-@keyframes slide-in-s {
+@keyframes draw-frame {
     to { stroke-dashoffset: 0; }
 }
 
-@keyframes slide-in-g {
+/* S letter lines draw in sequence */
+.logo-letter-s line {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: draw-line 0.3s ease-out forwards;
+}
+
+.logo-letter-s line:nth-child(1) { animation-delay: 0.8s; }
+.logo-letter-s line:nth-child(2) { animation-delay: 1.0s; }
+.logo-letter-s line:nth-child(3) { animation-delay: 1.2s; }
+.logo-letter-s line:nth-child(4) { animation-delay: 1.4s; }
+.logo-letter-s line:nth-child(5) { animation-delay: 1.6s; }
+
+/* G letter lines draw in sequence */
+.logo-letter-g line {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: draw-line 0.3s ease-out forwards;
+}
+
+.logo-letter-g line:nth-child(1) { animation-delay: 2.0s; }
+.logo-letter-g line:nth-child(2) { animation-delay: 2.2s; }
+.logo-letter-g line:nth-child(3) { animation-delay: 2.4s; }
+.logo-letter-g line:nth-child(4) { animation-delay: 2.6s; }
+.logo-letter-g line:nth-child(5) { animation-delay: 2.8s; }
+
+@keyframes draw-line {
     to { stroke-dashoffset: 0; }
 }
 
-@keyframes connect-draw {
-    to { stroke-dashoffset: 0; }
+/* Center dot fades in at the end */
+.logo-dot {
+    opacity: 0;
+    animation: fade-in 0.5s ease-out forwards;
+    animation-delay: 3.2s;
 }
 
-/* Center accent pulse */
-.logo-accent {
-    animation: accent-pulse 2s ease-in-out infinite;
-    transform-origin: center;
+@keyframes fade-in {
+    to { opacity: 1; }
 }
 
-@keyframes accent-pulse {
-    0%, 100% { 
-        transform: scale(1); 
-        opacity: 1;
-    }
-    50% { 
-        transform: scale(1.5); 
-        opacity: 0.6;
-    }
-}
-
-/* Hover effect */
-.hero-logo:hover .logo-hex {
-    animation-duration: 5s;
-}
-
-.hero-logo:hover .logo-hex-inner {
-    animation-duration: 3s;
-}
-
-.hero-logo:hover .logo-s-geo,
-.hero-logo:hover .logo-g-geo {
-    filter: drop-shadow(0 0 4px #14b8a6);
+/* Subtle hover effect - no animation, just glow */
+.hero-logo:hover .logo-frame {
+    filter: drop-shadow(0 0 8px #14b8a6);
 }
 
 /* Pulse animation for latest gig */

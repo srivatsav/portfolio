@@ -2,31 +2,34 @@
 <main>
     <!-- Hero Section with Animated Logo -->
     <section class="hero">
-        <!-- Animated Geometric SG Monogram -->
+        <!-- Geometric SG Monogram - Animates once on load -->
         <div class="hero-logo">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
-                <!-- Background hexagon -->
-                <polygon class="logo-hex" points="50,5 90,25 90,75 50,95 10,75 10,25" 
-                         fill="none" stroke="#14b8a6" stroke-width="2" opacity="0.3"/>
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                <!-- Background diamond shape -->
+                <rect class="logo-frame" x="20" y="20" width="80" height="80" rx="8" 
+                      fill="none" stroke="#14b8a6" stroke-width="3" 
+                      transform="rotate(45 60 60)"/>
                 
-                <!-- Inner hexagon -->
-                <polygon class="logo-hex-inner" points="50,15 80,30 80,70 50,85 20,70 20,30" 
-                         fill="none" stroke="#14b8a6" stroke-width="2"/>
+                <!-- S - Geometric construction -->
+                <g class="logo-letter-s">
+                    <line x1="38" y1="42" x2="52" y2="42" stroke="#14b8a6" stroke-width="4" stroke-linecap="square"/>
+                    <line x1="52" y1="42" x2="52" y2="52" stroke="#14b8a6" stroke-width="4" stroke-linecap="square"/>
+                    <line x1="52" y1="52" x2="38" y2="52" stroke="#14b8a6" stroke-width="4" stroke-linecap="square"/>
+                    <line x1="38" y1="52" x2="38" y2="62" stroke="#14b8a6" stroke-width="4" stroke-linecap="square"/>
+                    <line x1="38" y1="62" x2="52" y2="62" stroke="#14b8a6" stroke-width="4" stroke-linecap="square"/>
+                </g>
                 
-                <!-- Geometric S - constructed from straight lines -->
-                <path class="logo-s-geo" d="M 35 35 L 45 35 L 45 45 L 35 45 L 35 55 L 45 55" 
-                      fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+                <!-- G - Geometric construction -->
+                <g class="logo-letter-g">
+                    <line x1="82" y1="42" x2="68" y2="42" stroke="#14b8a6" stroke-width="4" stroke-linecap="square"/>
+                    <line x1="68" y1="42" x2="68" y2="62" stroke="#14b8a6" stroke-width="4" stroke-linecap="square"/>
+                    <line x1="68" y1="62" x2="82" y2="62" stroke="#14b8a6" stroke-width="4" stroke-linecap="square"/>
+                    <line x1="82" y1="62" x2="82" y2="52" stroke="#14b8a6" stroke-width="4" stroke-linecap="square"/>
+                    <line x1="82" y1="52" x2="75" y2="52" stroke="#14b8a6" stroke-width="4" stroke-linecap="square"/>
+                </g>
                 
-                <!-- Geometric G - constructed from straight lines -->
-                <path class="logo-g-geo" d="M 65 35 L 55 35 L 55 55 L 65 55 L 65 45 L 60 45" 
-                      fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
-                
-                <!-- Connection line between S and G -->
-                <line class="logo-connect" x1="45" y1="45" x2="55" y2="45" 
-                      stroke="#14b8a6" stroke-width="2"/>
-                
-                <!-- Corner accents -->
-                <circle class="logo-accent" cx="50" cy="50" r="2" fill="#14b8a6"/>
+                <!-- Connection dot -->
+                <circle class="logo-dot" cx="60" cy="52" r="3" fill="#14b8a6"/>
             </svg>
         </div>
         
