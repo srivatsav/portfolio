@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}?v=2">
+    
+    <!-- Fonts: Maple Mono + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Maple Mono from jsDelivr CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chinese-fonts/maple-mono-cn@1.0.1/dist/MapleMono-CN-Regular/result.css">
+    
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}?v=3">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤟</text></svg>">
 </head>
 <body>
@@ -19,6 +27,10 @@
                     <a href="{{ "blog" | relURL }}">Blog</a>
                     <a href="https://github.com/srivatsav" target="_blank" rel="noopener">GitHub</a>
                     <a href="https://linkedin.com/in/srivatsav-gorti" target="_blank" rel="noopener">LinkedIn</a>
+                    <!-- Dark mode toggle -->
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                    </button>
                 </div>
             </nav>
         </header>
@@ -29,5 +41,45 @@
             <p>&copy; {{ now.Year }} {{ .Site.Params.author }}. All rights reserved.</p>
         </footer>
     </div>
+    
+    <!-- Theme toggle script -->
+    <script>
+        (function() {
+            const toggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            const icon = toggle.querySelector('.theme-icon');
+            
+            // Get saved theme or default to auto
+            const savedTheme = localStorage.getItem('theme') || 'auto';
+            
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    html.setAttribute('data-theme', 'dark');
+                    icon.textContent = '☀️';
+                } else if (theme === 'light') {
+                    html.setAttribute('data-theme', 'light');
+                    icon.textContent = '🌙';
+                } else {
+                    // Auto - follow system
+                    html.removeAttribute('data-theme');
+                    icon.textContent = '🌓';
+                }
+            }
+            
+            // Initial apply
+            applyTheme(savedTheme);
+            
+            // Cycle: auto → dark → light → auto
+            const themes = ['auto', 'dark', 'light'];
+            let currentIndex = themes.indexOf(savedTheme);
+            
+            toggle.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % themes.length;
+                const newTheme = themes[currentIndex];
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            });
+        })();
+    </script>
 </body>
 </html>
