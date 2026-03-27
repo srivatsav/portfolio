@@ -24,9 +24,10 @@ theme = []
     endLevel = 3
     ordered = false
   [markup.highlight]
-    style = "github"
+    style = "monokai"
     lineNos = true
     codeFences = true
+    noClasses = false
 
 [taxonomies]
   tag = "tags"
