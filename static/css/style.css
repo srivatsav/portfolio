@@ -733,40 +733,56 @@ footer a:hover {
     color: var(--text-primary);
 }
 
-/* Syntax highlighting - Monokai theme adjustments */
-.post-content .highlight {
-    background: var(--code-bg);
-    border-radius: 8px;
+/* Clean README-style Code Blocks */
+.post-content pre {
+    background: #f6f8fa;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
     margin-bottom: 1.5rem;
 }
 
-.post-content .highlight pre {
+.post-content pre code {
     background: transparent;
-    border: none;
-    margin: 0;
+    padding: 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #24292e;
+    font-family: 'SF Mono', Monaco, Inconsolata, 'Fira Code', monospace;
 }
 
-/* Ensure syntax highlighting colors work in both modes */
-.post-content .highlight code {
-    color: #f8f8f2;
-}
-
-/* Line numbers */
-.post-content .highlight .lnt {
-    color: var(--text-tertiary);
-    margin-right: 1rem;
+/* Dark mode code blocks */
+[data-theme="dark"] .post-content pre,
+[data-theme="dark"] .post-content pre code {
+    background: #161b22;
+    color: #c9d1d9;
+    border-color: #30363d;
 }
 
 /* Inline code */
 .post-content code {
-    font-family: var(--font-mono);
-    font-size: 0.9em;
+    font-family: 'SF Mono', Monaco, Inconsolata, 'Fira Code', monospace;
+    font-size: 0.85em;
     background: var(--code-bg);
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
     color: var(--text-primary);
-    border: 1px solid var(--border);
 }
+
+/* Syntax highlighting colors - GitHub style */
+.post-content .highlight .k { color: #d73a64; } /* Keyword */
+.post-content .highlight .s { color: #032f62; } /* String */
+.post-content .highlight .n { color: #6f42c1; } /* Name */
+.post-content .highlight .c { color: #6a737d; } /* Comment */
+.post-content .highlight .o { color: #d73a64; } /* Operator */
+
+/* Dark mode syntax colors */
+[data-theme="dark"] .post-content .highlight .k { color: #ff7b72; }
+[data-theme="dark"] .post-content .highlight .s { color: #a5d6ff; }
+[data-theme="dark"] .post-content .highlight .n { color: #d2a8ff; }
+[data-theme="dark"] .post-content .highlight .c { color: #8b949e; }
+[data-theme="dark"] .post-content .highlight .o { color: #ff7b72; }
 
 .post-content blockquote {
     border-left: 3px solid var(--accent);
