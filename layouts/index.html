@@ -2,26 +2,31 @@
 <main>
     <!-- Hero Section with Animated Logo -->
     <section class="hero">
-        <!-- Animated SG Logo -->
+        <!-- Animated Geometric SG Monogram -->
         <div class="hero-logo">
-            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
-                <!-- Animated background rings -->
-                <circle class="logo-ring logo-ring-1" cx="60" cy="60" r="55" fill="none" stroke="#14b8a6" stroke-width="1" opacity="0.3"/>
-                <circle class="logo-ring logo-ring-2" cx="60" cy="60" r="50" fill="none" stroke="#14b8a6" stroke-width="2" opacity="0.5"/>
-                <circle class="logo-ring logo-ring-3" cx="60" cy="60" r="45" fill="none" stroke="#14b8a6" stroke-width="1.5" opacity="0.7"/>
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                <!-- Background hexagon -->
+                <polygon class="logo-hex" points="50,5 90,25 90,75 50,95 10,75 10,25" 
+                         fill="none" stroke="#14b8a6" stroke-width="2" opacity="0.3"/>
                 
-                <!-- S letter - constructed from paths for animation -->
-                <path class="logo-letter logo-s" d="M 38 45 Q 30 45 30 52 Q 30 58 42 58 Q 52 58 52 65 Q 52 72 42 72 Q 35 72 30 68" 
-                      fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Inner hexagon -->
+                <polygon class="logo-hex-inner" points="50,15 80,30 80,70 50,85 20,70 20,30" 
+                         fill="none" stroke="#14b8a6" stroke-width="2"/>
                 
-                <!-- G letter - constructed from paths -->
-                <path class="logo-letter logo-g" d="M 78 55 Q 88 55 88 65 Q 88 75 75 75 Q 68 75 68 65 Q 68 50 82 50 Q 88 50 90 52" 
-                      fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                <line class="logo-letter logo-g-bar" x1="82" y1="65" x2="90" y2="65" 
-                      stroke="#14b8a6" stroke-width="4" stroke-linecap="round"/>
+                <!-- Geometric S - constructed from straight lines -->
+                <path class="logo-s-geo" d="M 35 35 L 45 35 L 45 45 L 35 45 L 35 55 L 45 55" 
+                      fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
                 
-                <!-- Connection dot -->
-                <circle class="logo-dot" cx="60" cy="60" r="3" fill="#14b8a6"/>
+                <!-- Geometric G - constructed from straight lines -->
+                <path class="logo-g-geo" d="M 65 35 L 55 35 L 55 55 L 65 55 L 65 45 L 60 45" 
+                      fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+                
+                <!-- Connection line between S and G -->
+                <line class="logo-connect" x1="45" y1="45" x2="55" y2="45" 
+                      stroke="#14b8a6" stroke-width="2"/>
+                
+                <!-- Corner accents -->
+                <circle class="logo-accent" cx="50" cy="50" r="2" fill="#14b8a6"/>
             </svg>
         </div>
         
